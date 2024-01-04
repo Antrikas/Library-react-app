@@ -86,18 +86,21 @@ function App() {
       <div className="App">
         <Nav numberOfItems={numberOfItems()}/>
         <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/books" element={<Books books={books} />} />
+        <Route path="/" exact element={<Home/>} />
+        <Route path="/books" exact element={<Books books={books} />} />
           {/* <Route path="/books element={() => <Books books=
             {books} />} />*/}
         
         <Route path="/books/:id" element={<BookInfo books={books}
-          addItemToCart={addItemToCart} cart={cart} /> } />
-            <Route path="/cart" element={<Cart books={books} cart={cart}
-               changeQuantity={changeQuantity} 
+          addItemToCart={addItemToCart} cart={cart}></BookInfo> } />
+
+            <Route path="/cart" element={
+            <Cart 
+            books={books} cart={cart}
+              changeQuantity={changeQuantity} 
               removeItem={removeItem}
               totals={calcPrices}
-              />
+              ></Cart>
               } 
               />
           
