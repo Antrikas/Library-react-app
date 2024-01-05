@@ -14,6 +14,7 @@ function App() {
 
   function addItemToCart(book) {
     const dupeItem = cart.find((item) => item.id === book.id);
+   
     setCart((oldCart) =>
       dupeItem
         ? [
@@ -44,7 +45,6 @@ function App() {
       })
     );
   }
-
   function removeItem(item) {
     setCart((oldCart) => oldCart.filter((cartItem) => cartItem.id !== item.id));
   }
