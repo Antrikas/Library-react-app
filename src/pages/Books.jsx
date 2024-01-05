@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { books } from "../data";
+import Book  from "../components/ui/Book"
+
 
 const Books = ({ books: initalBooks }) => {
-    const [books, setBooks] = useState();
-  
-    useEffect(() => {
-      setBooks(initalBooks);
-    }, [initalBooks]);
-  
+    const [books, setBooks] = useState(initalBooks);
+   
+   
     function filterBooks(filter) {
-      switch (filter) {
-        case "LOW_TO_HIGH":
-          return setBooks(
+      console.log (filter);
+          if (filter ===  "LOW_TO_HIGH") {
+          setBooks(
             books
               .slice()
               .sort(
@@ -20,8 +18,11 @@ const Books = ({ books: initalBooks }) => {
                   (b.salePrice || b.originalPrice)
               )
           );
-        case "HIGH_TO_LOW":
-          return setBooks(
+              }
+   
+   
+        if (filter === "HIGH_TO_LOW") {
+           setBooks(
             books
               .slice()
               .sort(
@@ -30,13 +31,14 @@ const Books = ({ books: initalBooks }) => {
                   (a.salePrice || a.originalPrice)
               )
           );
-        case "RATING":
-          return setBooks(books.slice().sort((a, b) => b.rating - a.rating));
-        default:
-          break;
+              }
+   
+   
+        if (filter === "RATING") {
+           setBooks(books.slice().sort((a, b) => b.rating - a.rating));
       }
     }
-
+   
   return (
     <div id="books__body">
       <main id="books__main">
@@ -62,7 +64,7 @@ const Books = ({ books: initalBooks }) => {
               </div>
               <div className="books">
                 {books && books.map((book) => {
-               return <Books book={book} key={book.id} />;
+               return <Book book={book} key={book.id} />;
                 })}
               </div>
             </div>
