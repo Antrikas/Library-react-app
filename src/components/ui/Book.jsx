@@ -28,18 +28,12 @@ const Book = ({ book }) => {
 
   return (
     <div className="book">
-      {!img ? (
-        <>
-          <div className="book__img--skeleton"></div>
-          <div className="skeleton book__title--skeleton"></div>
-          <div className="skeleton book__rating--skeleton"></div>
-          <div className="skeleton book__price--skeleton"></div>
-        </>
-      ) : (
+      {img ? (
         <>
           <Link to={`/books/${book.id}`}>
             <figure className="book__img--wrapper">
-              <img className="book__img" src={img.src} alt="" />
+              <img 
+              className="book__img" src={img.src} alt="" />
             </figure>
           </Link>
           <div className="book__title">
@@ -49,10 +43,17 @@ const Book = ({ book }) => {
           </div>
           <Ratings rating={book.rating} />
           <Price
-            originalPrice={book.originalPrice}
             salePrice={book.salePrice}
+            originalPrice={book.originalPrice}
           />
         </>
+        ) : (
+        <>
+          <div className="book__img--skeleton"></div>
+          <div className="skeleton book__title--skeleton"></div>
+          <div className="skeleton book__rating--skeleton"></div>
+          <div className="skeleton book__price--skeleton"></div>
+          </>
       )}
     </div>
   );

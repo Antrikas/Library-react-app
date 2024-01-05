@@ -31,20 +31,19 @@ function App() {
     );
   }
 
-  function changeQuantity(item, newQuantity) {
-    setCart((oldCart) =>
-      oldCart.map((oldItem) => {
-        if (oldItem.id === item.id) {
-          return {
-            ...oldItem,
-            quantity: newQuantity,
-          };
-        } else {
-          return oldItem;
-        }
-      })
-    );
-  }
+  function changeQuantity(book, quantity) {
+    setCart(
+      cart.map((item) =>
+      item.id === book.id
+      ? {
+        ...item,
+        quantity: +quantity,
+      }
+      : item
+      )
+      )
+    }
+
   function removeItem(item) {
     setCart((oldCart) => oldCart.filter((cartItem) => cartItem.id !== item.id));
   }
