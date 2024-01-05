@@ -13,22 +13,7 @@ function App() {
   const [cart, setCart] = useState([]);
 
   function addItemToCart(book) {
-    const dupeItem = cart.find((item) => item.id === book.id);
-   
-    setCart((oldCart) =>
-      dupeItem
-        ? [
-            ...oldCart.map((item) => {
-              return item.id === dupeItem.id
-                ? {
-                    ...item,
-                    quantity: item.quantity + 1,
-                  }
-                : item;
-            }),
-          ]
-        : [...oldCart, { ...book, quantity: 1 }]
-    );
+    setCart([...cart, { ...book, quantity: 1 }]);
   }
 
   function changeQuantity(book, quantity) {
@@ -41,7 +26,7 @@ function App() {
       }
       : item
       )
-      )
+      );
     }
 
   function removeItem(item) {

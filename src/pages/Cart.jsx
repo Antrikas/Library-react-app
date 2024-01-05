@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import EmptyCart from "../assets/empty_cart.svg";
 
-const Cart = ({ cart, updateCart, removeItem, totals }) => {
+const Cart = ({ cart, changeQuantity, removeItem, totals }) => {
  const total = () => {
     let price = 0;
     cart.forEach((item) => {
@@ -43,7 +43,7 @@ const Cart = ({ cart, updateCart, removeItem, totals }) => {
                             {book.title}
                           </span>
                           <span className="cart__book--price">
-                            ${itemPrice.toFixed(2)}
+                            ${(book.salePrice || book.originalPrice).toFixed(2)}
                           </span>
                           <button
                             className="cart__book--remove"
@@ -61,12 +61,15 @@ const Cart = ({ cart, updateCart, removeItem, totals }) => {
                           value={book.quantity}
                           className="cart__input"
                           onChange={(event) =>
-                            updateCart(book, event.target.value)
+                            changeQuantity(book, event.target.value)
                           }
                         />
                       </div>
                       <div className="cart__total">
-                        ${(itemPrice * book.quantity).toFixed(2)}
+                        $
+                        {(
+                            (book.salePrice || book.orginialPrice) * book.quantity
+                            ).toFixed(2)}
                       </div>
                     </div>
                   );
