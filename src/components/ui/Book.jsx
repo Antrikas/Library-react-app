@@ -57,6 +57,7 @@ const Book = ({ book }) => {
       )}
     </div>
   );
+  
 };
 
 export default Book;
