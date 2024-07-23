@@ -7,16 +7,27 @@ const Landing = () => {
       <header>
         <div className="header__container">
           <div className="header__description">
-            <h1>America's most awarded online library platform</h1>
+            <h1>Cyprus's Auto Service Platform</h1>
             <h2>
-              Find your dream book with <span className="purple">Library</span>
+              Find your Auto Service <span className="orange">Now</span>
             </h2>
-            <a href="#features">
-              <button className="btn">Browse books</button>
+            <div className="nav__btns">
+            <a href="#Mechanics">
+              <button className="btn">Auto Mechanics</button>
+              </a>
+              <a href="#Auto Body Technician">
+              <button className="btn">Auto Body Technician</button>
+              </a>
+              <a href="#Automotive Painter">
+              <button className="btn">Automotive Painter</button>
+              </a>
+              <a href="#Auto Glass Technician">
+              <button className="btn">Auto Glass Technician</button>
             </a>
+            </div>
           </div>
           <figure className="header__img--wrapper">
-            <img src={UndrawBooks} alt="" />
+           <img src="../assets/wallpaper.jpeg" alt=""></img>
           </figure>
         </div>
       </header>

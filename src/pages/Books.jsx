@@ -47,7 +47,7 @@ const Books = ({ books: initalBooks }) => {
             <div className="row">
               <div className="books__header">
                 <h2 className="section__title books__header--title">
-                  All Books
+                  All Auto Specialists
                 </h2>
                 <select
                   id="filter" defaultValue={"DEFAULT"}
@@ -57,8 +57,10 @@ const Books = ({ books: initalBooks }) => {
                   <option value="DEFAULT" disabled>
                     Sort
                   </option>
-                  <option value="LOW_TO_HIGH">Price, Low to High</option>
-                  <option value="HIGH_TO_LOW">Price, High to Low</option>
+                  <option value="LOW_TO_HIGH">Auto Mechanics</option>
+                  <option value="HIGH_TO_LOW">Auto Body Technician</option>
+                  <option value="HIGH_TO_LOW">Automotive Painter</option>
+                  <option value="HIGH_TO_LOW">Auto Glass Technician </option>
                   <option value="RATING">Rating</option>
                 </select>
               </div>
